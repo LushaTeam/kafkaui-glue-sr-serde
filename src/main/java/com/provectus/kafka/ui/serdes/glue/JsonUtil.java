@@ -26,6 +26,7 @@ class JsonUtil {
     try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
       Schema schema = record.getSchema();
       JsonEncoder encoder = EncoderFactory.get().jsonEncoder(schema, out);
+      encoder.setIncludeNamespace(false);
       DatumWriter<Object> writer = new GenericDatumWriter<>(schema);
       writer.write(record, encoder);
       encoder.flush();
