@@ -187,7 +187,7 @@ public class GlueSerde implements Serde {
 
   @Override
   public boolean canDeserialize(String topic, Target target) {
-    return getSchemaName(topic, target).map(this::schemaExistsCached).orElse(false);
+    return true;
   }
 
   private Optional<String> findSchemaByPattern(List<Map.Entry<String, Pattern>> patterns, String topicName) {
